@@ -15,4 +15,10 @@
 
 # include <stdlib.h>
 
+typedef struct pile
+{
+	int	*pile;
+	int	size;
+} pile;
+
 #endif
