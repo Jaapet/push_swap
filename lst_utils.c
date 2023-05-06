@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 14:34:17 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/06 16:39:37 by ndesprez         ###   ########.fr       */
+/*   Created: 2023/05/06 16:32:10 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/05/06 16:37:43 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_stack
+int	ft_lstsize(t_stack *lst)
 {
-	int		data;
-	t_pile	*next;
-}	t_stack;
+	int	i;
 
-int		ft_lstsize(t_stack *lst);
-t_stack	*ft_lstsearch(t_stack *lst, int index);
-void	swap(t_stack *stack);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
 
-#endif
+t_stack	*ft_lstsearch(t_stack *lst, int index)
+{
+	int	i;
+
+	i = index;
+	while (i > 1)
+	{
+		i--;
+		lst = lst->next;
+	}
+	return (lst);
+}

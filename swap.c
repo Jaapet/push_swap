@@ -6,22 +6,24 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:40:06 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/04/27 14:40:07 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:45:27 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(pile pile)
+void	swap(t_stack *stack)
 {
-	int	temp;
+	int	last;
+	int	before_last;
 
-	temp = pile.pile[0];
-	pile.pile[0] = pile.pile[1];
-	pile.pile[1] = temp;
+	last = ft_lstsearch(stack, ft_lstsize(stack))->data;
+	before_last = ft_lstsearch(stack, ft_lstsize(stack) - 1)->data;
+	ft_lstsearch(stack, ft_lstsize(stack))->data = before_last;
+	ft_lstsearch(stack, ft_lstsize(stack) - 1)->data = last;
 }
 
-void	sswap(pile a, pile b)
+void	sswap(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
