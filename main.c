@@ -1,38 +1,37 @@
-#include "push.c"
-#include "swap.c"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/16 17:09:33 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/05/16 18:47:58 by ndesprez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+#include "swap.c"
 #include <stdio.h>
-int main(void)
+/*
+void	ft_lstprint(t_stack *lst)
 {
-	int *a;
+	t_stack	*temp;
 
-	a = malloc(sizeof(int) * 5);
+	temp = lst;
+	while (temp)
+	{
+		printf("%d\n", lst->data);
+		temp = temp->next;
+	}
+}*/
 
-	a[0] = 0;
-	a[1] = 1;
-	a[2] = 2;
-	a[3] = 3;
-	a[4] = 4;
+int	main(int argc, char **argv)
+{
+	t_stack		*a;
+	t_stack		*b;
+	long int	*list;
 
-	pile pile_a;
-	pile pile_b;
-
-	pile_a.pile = a;
-	pile_a.size = 5;
-	pile_b.size = 0;
-
-	printf("a : {%d, %d, %d, %d, %d}\n", pile_a.pile[0], pile_a.pile[1], pile_a.pile[2], pile_a.pile[3], pile_a.pile[4]);
-	int **ret;
-	ret = push(pile_a, pile_b);
-	pile_a.pile = ret[0];
-	pile_b.pile = ret[1];
-	printf("a : {%d, %d, %d, %d, %d} / size : %d\n", pile_a.pile[0], pile_a.pile[1], pile_a.pile[2], pile_a.pile[3], pile_a.pile[4], pile_a.size);
-	printf("b : {%d, %d, %d, %d, %d} / size : %d\n", pile_b.pile[0], pile_b.pile[1], pile_b.pile[2], pile_b.pile[3], pile_b.pile[4], pile_b.size);
-	swap(pile_a);
-	printf("a : {%d, %d, %d, %d, %d} / size : %d\n", pile_a.pile[0], pile_a.pile[1], pile_a.pile[2], pile_a.pile[3], pile_a.pile[4], pile_a.size);
-	ret = push(pile_a, pile_b);
-	pile_a.pile = ret[0];
-	pile_b.pile = ret[1];
-	printf("a : {%d, %d, %d, %d, %d} / size : %d\n", pile_a.pile[0], pile_a.pile[1], pile_a.pile[2], pile_a.pile[3], pile_a.pile[4], pile_a.size);
-	printf("b : {%d, %d, %d, %d, %d} / size : %d\n", pile_b.pile[0], pile_b.pile[1], pile_b.pile[2], pile_b.pile[3], pile_b.pile[4], pile_b.size);
+	b = NULL;
+	list = parse_list(argc, argv);
 }

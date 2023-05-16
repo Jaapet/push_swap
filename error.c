@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 16:32:10 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/06 16:37:43 by ndesprez         ###   ########.fr       */
+/*   Created: 2023/05/16 18:48:07 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/05/16 18:51:00 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (lst)
+	while (str[i])
 	{
+		ft_putchar(str[i]);
 		i++;
-		lst = lst->next;
 	}
-	return (i);
 }
 
-t_stack	*ft_lstsearch(t_stack *lst, int index)
+void	throw_error(void)
 {
-	int	i;
-
-	i = index;
-	while (i > 1)
-	{
-		i--;
-		lst = lst->next;
-	}
-	return (lst);
+	ft_putstr("Error\n");
+	exit(EXIT_FAILURE);
 }

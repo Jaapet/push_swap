@@ -6,13 +6,21 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:40:23 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/06 16:21:48 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:57:24 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(pile src, pile dst)
+void	push(t_stack **src, t_stack **dst)
 {
-	
+	t_stack	*temp;
+
+	temp = (*src)->next;
+	if (*dst)
+		(*src)->next = *dst;
+	else
+		(*src)->next = NULL;
+	*dst = *src;
+	*src = temp;
 }
