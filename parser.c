@@ -6,13 +6,14 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:35:27 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 14:29:57 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:11:44 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "split.c"
 #include "error.c"
+#include "indexer.c"
 
 static int	ft_atoi(char *str)
 {
@@ -111,6 +112,6 @@ t_list	*parse_list(int argc, char **argv)
 		list = parse_one_arg(argv[1]);
 	else
 		list = parse_mult_args(argc, argv);
-	//list = get_index(list, size);
+	list->index_array = set_index(list);
 	return (list);
 }

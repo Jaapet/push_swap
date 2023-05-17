@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   indexer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:09:33 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 16:12:22 by ndesprez         ###   ########.fr       */
+/*   Created: 2023/05/17 15:20:20 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/05/17 16:10:59 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "parser.c"
-#include "lst_build.c"
 
-void	ft_lstprint(t_stack *lst)
+static long int	get_index(t_list *list, int nb)
 {
-	while (lst)
-	{
-		printf(" %d ->", lst->data);
-		lst = lst->next;
-	}
-	printf(" NULL\n");
-}
+	int			i;
+	long int	count;
 
-int	main(int argc, char **argv)
-{
-	t_stack		*a;
-	t_stack		*b;
-	t_list		*list;
-	long int	i;
-
-	if (argc == 1)
-		return (0);
-	b = NULL;
 	i = 0;
-	list = parse_list(argc, argv);
+	count = 0;
 	while (i < list->size)
 	{
-		lst_add(&a, list->index_array[i]);
+		if (nb > list->array[i])
+			count++;
 		i++;
 	}
-	ft_lstprint(a);
-	return (0);
+	return (count);
+}
+
+long int	*set_index(t_list *list)
+{
+	long int	*index;
+	int			i;
+
+	index = malloc(sizeof(long int) * list->size);
+	if (!index)
+		return (NULL);
+	i = 0;
+	while (i < list->size)
+	{
+		index[i] = get_index(list, list->array[i]);
+		i++;
+	}
+	return (index);
 }
