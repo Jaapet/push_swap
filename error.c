@@ -6,18 +6,18 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:48:07 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/16 18:51:00 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:12:24 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putchar(char c)
+static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
 	int	i;
 
