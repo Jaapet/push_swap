@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:09:33 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/18 11:37:43 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:18:10 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,23 @@
 	}
 	printf(" NULL\n");
 }*/
-void	sort_three(t_stack **a)
+int	find_lowest(t_stack **stack)
+{
+	int		i;
+	t_stack	*temp;
+
+	temp = *stack;
+	i = 5;
+	while (temp)
+	{
+		if (temp->data < i)
+			i = temp->data;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+static void	sort_three(t_stack **a)
 {
 	if ((*a)->data > (*a)->next->data
 		&& (*a)->next->data > (*a)->next->next->data)
@@ -46,14 +62,31 @@ void	sort_three(t_stack **a)
 		ra(a);
 }
 
-void	sort(t_stack **a, t_stack **b, long int size)
+static void	sort_five(t_stack **a, t_stack **b)
+{
+	int	i;
+
+	i = 0;
+	while (i < 2)
+	{
+		while ((*a)->data != find_lowest(a))
+			ra(a);
+		pb(a, b);
+		i++;
+	}
+	sort_three(a);
+	while (*b)
+		pa(b, a);
+}
+
+static void	sort(t_stack **a, t_stack **b, long int size)
 {
 	if (size == 2 && !is_sort(a))
 		sa(a);
 	else if (size == 3 && !is_sort(a))
 		sort_three(a);
-	//else if (size == 5)
-	//	sort_five(a, b);
+	else if (size == 5 && !is_sort(a))
+		sort_five(a, b);
 	else
 		radix(a, b, size);
 }
