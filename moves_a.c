@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   moves_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 18:48:07 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 19:11:32 by ndesprez         ###   ########.fr       */
+/*   Created: 2023/05/17 19:17:52 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/05/18 11:07:00 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_putchar(char c)
+void	ra(t_stack **a)
 {
-	write(1, &c, 1);
+	rotate(a);
+	ft_putstr("ra\n");
 }
 
-void	ft_putstr(char *str)
+void	rra(t_stack **a)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	rev_rotate(a);
+	ft_putstr("rra\n");
 }
 
-void	throw_error(void)
+void	pa(t_stack **b, t_stack **a)
 {
-	ft_putstr("Error\n");
-	exit(EXIT_FAILURE);
+	push(b, a);
+	ft_putstr("pa\n");
+}
+
+void	sa(t_stack **a)
+{
+	swap(a);
+	ft_putstr("sa\n");
 }

@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:59:21 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 14:48:59 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/17 20:13:10 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_count_words(char const *str, char c)
 	return (count);
 }
 
-static char	**ft_free(char **list, char const *s, char c)
+static char	**ft_free(char **list)
 {
 	int	i;
 
@@ -84,7 +84,7 @@ char	**ft_split(char const *str, char c)
 		{
 			list[i] = create_word(str, c);
 			if (!list[i])
-				return (ft_free(list, str, c));
+				return (ft_free(list));
 			i++;
 			while (*str != c && *str)
 				str++;

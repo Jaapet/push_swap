@@ -6,14 +6,11 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:35:27 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 16:11:44 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/17 20:10:26 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "split.c"
-#include "error.c"
-#include "indexer.c"
 
 static int	ft_atoi(char *str)
 {

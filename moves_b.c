@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   moves_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 18:48:07 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 19:11:32 by ndesprez         ###   ########.fr       */
+/*   Created: 2023/05/18 11:06:20 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/05/18 11:07:05 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_putchar(char c)
+void	pb(t_stack **a, t_stack **b)
 {
-	write(1, &c, 1);
+	push(a, b);
+	ft_putstr("pb\n");
 }
 
-void	ft_putstr(char *str)
+void	sb(t_stack **b)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
-void	throw_error(void)
-{
-	ft_putstr("Error\n");
-	exit(EXIT_FAILURE);
+	swap(b);
+	ft_putstr("sb\n");
 }

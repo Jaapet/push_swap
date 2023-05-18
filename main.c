@@ -6,19 +6,13 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:09:33 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 18:07:49 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:37:43 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "parser.c"
-#include "lst_build.c"
-#include "swap.c"
-#include "push.c"
-#include "rotate.c"
-#include "rev_rotate.c"
 
-void	ft_lstprint(t_stack *lst)
+/*void	ft_lstprint(t_stack *lst)
 {
 	while (lst)
 	{
@@ -26,6 +20,42 @@ void	ft_lstprint(t_stack *lst)
 		lst = lst->next;
 	}
 	printf(" NULL\n");
+}*/
+void	sort_three(t_stack **a)
+{
+	if ((*a)->data > (*a)->next->data
+		&& (*a)->next->data > (*a)->next->next->data)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if ((*a)->data < (*a)->next->next->data
+		&& (*a)->next->data > (*a)->next->next->data)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if ((*a)->data > (*a)->next->data
+		&& (*a)->data < (*a)->next->next->data)
+		sa(a);
+	else if ((*a)->data < (*a)->next->data
+		&& (*a)->data > (*a)->next->next->data)
+		rra(a);
+	else if ((*a)->next->next->data > (*a)->next->data
+		&& (*a)->data > (*a)->next->next->data)
+		ra(a);
+}
+
+void	sort(t_stack **a, t_stack **b, long int size)
+{
+	if (size == 2 && !is_sort(a))
+		sa(a);
+	else if (size == 3 && !is_sort(a))
+		sort_three(a);
+	//else if (size == 5)
+	//	sort_five(a, b);
+	else
+		radix(a, b, size);
 }
 
 int	main(int argc, char **argv)
@@ -45,10 +75,6 @@ int	main(int argc, char **argv)
 		lst_add(&a, list->index_array[i]);
 		i++;
 	}
-	ft_lstprint(a);
-	rev_rotate(&a);
-	ft_lstprint(a);
-	rotate(&a);
-	ft_lstprint(a);
+	sort(&a, &b, list->size);
 	return (0);
 }
