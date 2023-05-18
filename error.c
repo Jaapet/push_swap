@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:48:07 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 19:11:32 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:04:46 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	ft_putstr(char *str)
 
 void	throw_error(void)
 {
-	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:17 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/18 11:07:33 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:57:41 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,6 @@ t_list		*parse_list(int argc, char **argv);
 long int	*set_index(t_list *list);
 void		radix(t_stack **a, t_stack **b, long int size);
 int			is_sort(t_stack **stack);
+char		**ft_free(char **list);
+void		ft_lstclear(t_stack **lst);
 #endif

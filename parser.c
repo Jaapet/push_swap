@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:35:27 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 20:10:26 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:46:51 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static t_list	*parse_one_arg(char *str)
 		check_occurence(list->array, i + 1, list->array[i]);
 		i++;
 	}
+	ft_free(args);
 	return (list);
 }
 

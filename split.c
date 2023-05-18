@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:59:21 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 20:13:10 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:46:18 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_count_words(char const *str, char c)
 	return (count);
 }
 
-static char	**ft_free(char **list)
+char	**ft_free(char **list)
 {
 	int	i;
 

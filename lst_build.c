@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:15:05 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/16 17:20:36 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:57:25 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,32 @@ void	lst_add(t_stack **stack, int data)
 	while (last-> next)
 		last = last->next;
 	last->next = new;
+}
+
+static void	ft_lstdelone(t_stack *lst)
+{
+	free(lst);
+}
+
+void	ft_lstclear(t_stack **lst)
+{
+	t_stack	*temp;
+	t_stack	*nxt;
+
+	if (lst && *lst)
+	{
+		if ((*lst)->next)
+		{
+			temp = (*lst)->next;
+			while (temp->next)
+			{
+				nxt = temp->next;
+				ft_lstdelone(temp);
+				temp = nxt;
+			}
+			ft_lstdelone(temp);
+		}
+		ft_lstdelone(*lst);
+		*lst = NULL;
+	}
 }
