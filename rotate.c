@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:40:56 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/17 18:08:11 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:20:45 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rotate(t_stack **stack)
 {
 	t_stack	*temp_beg;
-	t_stack *temp_mov;
+	t_stack	*temp_mov;
 
 	if (!(*stack)->next)
 		return ;
