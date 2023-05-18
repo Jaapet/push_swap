@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:09:33 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/05/18 12:18:10 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:35:07 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,23 @@ static void	sort_three(t_stack **a)
 static void	sort_five(t_stack **a, t_stack **b)
 {
 	int	i;
+	int	min;
+	int	bef_min;
 
 	i = 0;
+	min = 0;
+	bef_min = 1;
 	while (i < 2)
 	{
-		while ((*a)->data != find_lowest(a))
+		while ((*a)->data != min && (*a)->data != bef_min)
 			ra(a);
 		pb(a, b);
 		i++;
 	}
-	sort_three(a);
+	if (!is_sort(a))
+		sort_three(a);
+	if (is_sort(b))
+		sb(b);
 	while (*b)
 		pa(b, a);
 }
